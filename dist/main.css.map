@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAGA,SACI,wBACA,aCHJ,MACI,a","sources":["webpack://dear_diary_v2/./src/styles/example.scss","webpack://dear_diary_v2/./src/index.scss"],"sourcesContent":["$color: purple;\n\n\n#main>h1{\n    border: 1px solid $color;\n    padding: 20px;\n}","@import './styles/example.scss';\n\n#main{\n    color: purple;\n}"],"names":[],"sourceRoot":""}
