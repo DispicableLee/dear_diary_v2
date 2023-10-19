@@ -1,9 +1,11 @@
-import Example from "./scripts/example"
-
+import Page from "./scripts/page"
+import PageForm from "./scripts/page-form"
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
     console.log("loaded")
     const main = document.getElementById('main')
-    new Example(main)
+    const page = new Page(main)
+    main.appendChild(page)
+
 })

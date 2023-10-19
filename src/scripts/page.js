@@ -1,4 +1,4 @@
-class Example{
+class Page{
     constructor(ele){
         this.ele = ele
         this.ele.innerHTML = "<h1>its alive!</h1>"
@@ -12,4 +12,4 @@ class Example{
 
 }
 
-export default Example
+export default Page
