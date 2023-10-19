@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
             .then((json)=>{
                 let resEmotions = json.emotions_normalized
                 for(const emote of Object.keys(resEmotions)){
-                    let idSearch = `${emote+'-li'}`
-                    console.log(idSearch)
+                    let idSearch = `${emote+'-label-li'}`
+                    // console.log(idSearch)
                     let emotionLi = document.getElementById(idSearch)
-                    let readOut =  `${resEmotions[emote]}`
-                    emotionLi.textContent = readOut
-                    console.log("done")
+                    let readOut = document.createTextNode(`${resEmotions[emote]}`)
+                    emotionLi.appendChild(readOut)
+                    // console.log("done")
                 }
             })
 })

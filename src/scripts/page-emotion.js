@@ -23,10 +23,13 @@ class PageEmotion{
     fillEmotionList(ul){
         for(const emotion of PageEmotion.emotionArray){
             let liId = `${emotion.toLowerCase()+'-li'}`
+            let labelId = `${emotion.toLowerCase()+'-label-li'}`
             const emoteLi = document.createElement('li')
             emoteLi.setAttribute('id', liId)
+
             const emoteLiLabel = document.createElement('label')
-            emoteLiLabel.innerText = `${emotion}`
+            emoteLiLabel.setAttribute('id', labelId)
+            emoteLiLabel.innerText = `${emotion}: `
             emoteLi.appendChild(emoteLiLabel)
             ul.appendChild(emoteLi)
         }
