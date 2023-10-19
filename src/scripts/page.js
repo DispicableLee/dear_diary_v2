@@ -1,14 +1,12 @@
 class Page{
     constructor(ele){
         this.ele = ele
-        this.ele.innerHTML = "<h1>its alive!</h1>"
-
-        this.ele.addEventListener('click', this.handleClick.bind(this))
+        const pageDiv = document.createElement('div')
+        pageDiv.setAttribute('id', 'page')
+        this.htElement = pageDiv
+        this.ele.appendChild(pageDiv)
     }
 
-    handleClick(){
-        this.ele.children[0].innerText = 'Ouch'
-    }
 
 }
 

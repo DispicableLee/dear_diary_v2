@@ -1,0 +1,41 @@
+#main{
+    color: purple;
+    border: 1px solid black;
+    height: 50%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+}
+
+#page{
+    border: 1px solid red;
+    height: 100%;
+    width: 50%;
+}
+
+#dear-diary{
+    background-color: grey;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+#dear-diary textarea{
+    resize: none;
+    height: 90%;
+    position: sticky;
+
+}
+
+#dear-diary input[type="submit"]{
+    height: 10%;
+}
+
+
+#emotion-list{
+    list-style: none;
+}
+
+#emotion-list li{
+    padding: 5px;
+}

@@ -1,11 +1,12 @@
 $color: purple;
 
 
-#main>h1{
+#main{
     border: 1px solid $color;
     padding: 20px;
+    height: 200px;
 }
 
-textarea{
-    resize: none;
+#page{
+    height: 200px;
 }

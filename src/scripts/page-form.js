@@ -1,12 +1,21 @@
 class PageForm{
     constructor(page){
         this.page = page
-        this.page.innerHTML = "<form><h1>form</h1></form>"
+        // console.log(page)
+        const form = document.createElement('form')
+        form.setAttribute('id', 'dear-diary')
+        this.makeFormStuff(form)
+        this.page.htElement.appendChild(form)
     }
 
-    makeForm(){
-
+    makeFormStuff(form){
+        const formTextArea = document.createElement('textarea')
+        const formSubmit = document.createElement('input')
+        formSubmit.type = "submit"
+        form.appendChild(formTextArea)
+        form.appendChild(formSubmit)
     }
+
 }
 
 export default PageForm
