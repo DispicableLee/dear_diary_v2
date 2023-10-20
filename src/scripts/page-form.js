@@ -15,6 +15,8 @@ class PageForm{
         form.appendChild(formTextArea)
         form.appendChild(formSubmit)
     }
+    // E.PREVENTDEFAULT()
+    // e.stopPropagation()
 
 }
 

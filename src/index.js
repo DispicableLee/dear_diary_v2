@@ -1,6 +1,7 @@
 import Page from "./scripts/page"
 import PageForm from "./scripts/page-form"
 import PageEmotion from "./scripts/page-emotion"
+import { PageFlip } from "../node_modules/page-flip/dist/js/page-flip.module.js";
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -10,16 +11,27 @@ document.addEventListener("DOMContentLoaded", ()=>{
     new PageEmotion(emotionPage)
     const formPage = new Page(main)
     new PageForm(formPage)
-    const diaryFormEntry = document.getElementById('dear-diary')
-
-    diaryFormEntry.addEventListener("submit",(e)=>{
-        e.preventDefault()
-        console.log("hi")
+    const diaryFormSubmit = document.querySelector('#dear-diary input')
+    const diaryFormTextarea = document.querySelector('#dear-diary textarea')
+    diaryFormTextarea.addEventListener('click', (e)=>{
+        e.stopPropagation()
     })
+
+    const pageFlip = new PageFlip(main, {
+        height: 600,
+        width: 400,
+        showCover: true,
+        // minWidth: 400,
+        // startPage: 1
+        disableFlipByClick: true
+        
+    })
+    pageFlip.loadFromHTML(document.querySelectorAll('.page'))
+
 
 
 // ================================ form submission =================================
-    diaryFormEntry.addEventListener('click',(e)=>{
+    diaryFormSubmit.addEventListener('click',(e)=>{
         e.preventDefault()
         const value = document.querySelector('textarea').value
         console.log(value)
@@ -47,7 +59,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     // console.log("done")
                 }
             })
-})
+    })
+// ==================== page-flip implementation ================
 
 
 
