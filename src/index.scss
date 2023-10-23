@@ -1,19 +1,33 @@
-
-
-.main{
-    color: purple;
-    border: 1px solid black;
-    height: 50%;
-    width: 100%;
+body{
     display: flex;
-    justify-content: center;
-    float: right;
+    flex-direction: row;
 }
+
+
+#about{
+    border: 1px solid black;
+    height: 300px;
+    width: 300px;
+}
+
+
+// #main{
+//     color: purple;
+//     border: 1px solid black;
+//     height: 50%;
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     float: right;
+// }
 
 .page{
     border: 1px solid red;
     height: 100%;
     width: 50%;
+}
+.page.page-cover{
+    background-color: aquamarine;
 }
 
 #dear-diary{

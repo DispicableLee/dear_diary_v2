@@ -1,20 +1,25 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-.main {
-  color: purple;
-  border: 1px solid black;
-  height: 50%;
-  width: 100%;
+body {
   display: flex;
-  justify-content: center;
-  float: right;
+  flex-direction: row;
+}
+
+#about {
+  border: 1px solid black;
+  height: 300px;
+  width: 300px;
 }
 
 .page {
   border: 1px solid red;
   height: 100%;
   width: 50%;
+}
+
+.page.page-cover {
+  background-color: aquamarine;
 }
 
 #dear-diary {

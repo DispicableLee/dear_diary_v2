@@ -11,10 +11,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
     new PageEmotion(emotionPage)
     const formPage = new Page(main)
     new PageForm(formPage)
+    
     const diaryFormSubmit = document.querySelector('#dear-diary input')
     const diaryFormTextarea = document.querySelector('#dear-diary textarea')
-    diaryFormTextarea.addEventListener('click', (e)=>{
-        e.stopPropagation()
+    // PageFlip logic below
+    diaryFormTextarea.addEventListener('focus', (e)=>{
+        console.log('click')
+        console.log(e.target)
+        // e.stopPropagation()
     })
 
     const pageFlip = new PageFlip(main, {
@@ -27,9 +31,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         
     })
     pageFlip.loadFromHTML(document.querySelectorAll('.page'))
-
-
-
 // ================================ form submission =================================
     diaryFormSubmit.addEventListener('click',(e)=>{
         e.preventDefault()
@@ -61,11 +62,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             })
     })
 // ==================== page-flip implementation ================
-
-
-
-
-
 
 })
 
