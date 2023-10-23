@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <!-- <link rel="stylesheet" href="./src/styles/paper-prototype.css"> -->
+    <link rel="stylesheet" href="./src/styles/paper-prototype.scss">
     <script src="./dist/main.js"></script>
     <script type="module" src="/src/scripts/flipping-page.js"></script>
     <title>Dear Diary</title>
@@ -13,12 +13,20 @@
 
 <body>
     <section id="about">
-        
+        <div>
+            <h1>Instructions</h1>
+            <p>type whatever you like into <span id="text-help">this</span>
+                form, then click the <span id="submit-help">submit</span> button to see 
+                your emotional state in <span id="read-help">this page</span>
+            </p>
+        </div>
+        <div>
+            <h2>Socials</h2>
+            
+        </div>
     </section>
     <div id="main">
-        <div class="page page-cover" data-density="hard" onclick="{()=>console.log("hi")}">
-            Page Cover
-        </div>
+
 
     </div>
 </body>

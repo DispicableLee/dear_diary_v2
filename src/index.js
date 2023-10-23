@@ -15,22 +15,43 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const diaryFormSubmit = document.querySelector('#dear-diary input')
     const diaryFormTextarea = document.querySelector('#dear-diary textarea')
     // PageFlip logic below
-    diaryFormTextarea.addEventListener('focus', (e)=>{
-        console.log('click')
-        console.log(e.target)
-        // e.stopPropagation()
+    // diaryFormTextarea.addEventListener('focus', (e)=>{
+    //     console.log('click')
+    //     console.log(e.target)
+    //     // e.stopPropagation()
+    // })
+
+    document.getElementById('text-help').addEventListener('mouseover',(e)=>{
+        document.getElementById('text-help').style.backgroundColor="#8A4D0F"
+        document.querySelector('#dear-diary textarea').style.backgroundColor = "#8A4D0F"
     })
 
-    const pageFlip = new PageFlip(main, {
-        height: 600,
-        width: 400,
-        showCover: true,
-        // minWidth: 400,
-        // startPage: 1
-        disableFlipByClick: true
-        
+    document.getElementById('text-help').addEventListener('mouseout',(e)=>{
+        document.getElementById('text-help').style.backgroundColor=null
+        document.querySelector('#dear-diary textarea').style.backgroundColor = null
     })
-    pageFlip.loadFromHTML(document.querySelectorAll('.page'))
+
+    document.getElementById('submit-help').addEventListener('mouseover',(e)=>{
+        document.getElementById('submit-help').style.backgroundColor="#8A4D0F"
+        document.querySelector('#dear-diary input[type="submit"]').style.backgroundColor = "#8A4D0F"
+    })
+
+    document.getElementById('submit-help').addEventListener('mouseout',(e)=>{
+        document.getElementById('submit-help').style.backgroundColor=null
+        document.querySelector('#dear-diary input[type="submit"]').style.backgroundColor = null
+    })
+
+    document.getElementById('read-help').addEventListener('mouseover',(e)=>{
+        document.getElementById('read-help').style.backgroundColor="#8A4D0F"
+        document.querySelector('#emote-div').style.backgroundColor = "#8A4D0F"
+    })
+
+    document.getElementById('read-help').addEventListener('mouseout',(e)=>{
+        document.getElementById('read-help').style.backgroundColor=null
+        document.querySelector('#emote-div').style.backgroundColor = null
+    })
+
+
 // ================================ form submission =================================
     diaryFormSubmit.addEventListener('click',(e)=>{
         e.preventDefault()
@@ -55,7 +76,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     let idSearch = `${emote+'-label-li'}`
                     // console.log(idSearch)
                     let emotionLi = document.getElementById(idSearch)
-                    let readOut = document.createTextNode(`${resEmotions[emote]}`)
+                    let readOut = document.createTextNode(`${Math.ceil(resEmotions[emote])}`)
                     emotionLi.appendChild(readOut)
                     // console.log("done")
                 }
@@ -64,4 +85,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
 // ==================== page-flip implementation ================
 
 })
+
+
+
+
+
+function textHelper(){
+    document.getElementById('text-help').style.backgroundColor="#8A4D0F"
+}
 
