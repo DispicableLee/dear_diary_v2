@@ -5,56 +5,31 @@ import { PageFlip } from "../node_modules/page-flip/dist/js/page-flip.module.js"
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    console.log("loaded")
-    const main = document.getElementById('main')
-    const emotionPage = new Page(main)
-    new PageEmotion(emotionPage)
-    const formPage = new Page(main)
-    new PageForm(formPage)
+    openDiary()
     
     const diaryFormSubmit = document.querySelector('#dear-diary input')
     const diaryFormTextarea = document.querySelector('#dear-diary textarea')
-    // PageFlip logic below
-    // diaryFormTextarea.addEventListener('focus', (e)=>{
-    //     console.log('click')
-    //     console.log(e.target)
-    //     // e.stopPropagation()
-    // })
-
-    document.getElementById('text-help').addEventListener('mouseover',(e)=>{
-        document.getElementById('text-help').style.backgroundColor="#8A4D0F"
-        document.querySelector('#dear-diary textarea').style.backgroundColor = "#8A4D0F"
+    
+    const diaryEntries = document.getElementById('entries')
+    const clearTheMind = document.getElementById('clear-the-mind')
+    clearTheMind.addEventListener('click', (e)=>{
+        e.preventDefault()
+        const emotionLabels = document.querySelectorAll('#emote-div li label')
+        for(const label of emotionLabels){
+            let temp = label.innerHTML
+            label.innerHTML = removeNumber(temp)
+        }
     })
 
-    document.getElementById('text-help').addEventListener('mouseout',(e)=>{
-        document.getElementById('text-help').style.backgroundColor=null
-        document.querySelector('#dear-diary textarea').style.backgroundColor = null
-    })
-
-    document.getElementById('submit-help').addEventListener('mouseover',(e)=>{
-        document.getElementById('submit-help').style.backgroundColor="#8A4D0F"
-        document.querySelector('#dear-diary input[type="submit"]').style.backgroundColor = "#8A4D0F"
-    })
-
-    document.getElementById('submit-help').addEventListener('mouseout',(e)=>{
-        document.getElementById('submit-help').style.backgroundColor=null
-        document.querySelector('#dear-diary input[type="submit"]').style.backgroundColor = null
-    })
-
-    document.getElementById('read-help').addEventListener('mouseover',(e)=>{
-        document.getElementById('read-help').style.backgroundColor="#8A4D0F"
-        document.querySelector('#emote-div').style.backgroundColor = "#8A4D0F"
-    })
-
-    document.getElementById('read-help').addEventListener('mouseout',(e)=>{
-        document.getElementById('read-help').style.backgroundColor=null
-        document.querySelector('#emote-div').style.backgroundColor = null
-    })
+    tutorialsHelp()
 
 
+    
 // ================================ form submission =================================
     diaryFormSubmit.addEventListener('click',(e)=>{
         e.preventDefault()
+        let eImg = document.querySelector('#emote-div img')
+        eImg.style.visibility = 'visible'
         const value = document.querySelector('textarea').value
         console.log(value)
         const options = {
@@ -80,17 +55,84 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     emotionLi.appendChild(readOut)
                     // console.log("done")
                 }
+                createEntry(value, diaryEntries)
+                eImg.style.visibility = 'hidden'
             })
     })
 // ==================== page-flip implementation ================
 
 })
 
+// ==================== sets up the application =====================
+function openDiary(){
+    const main = document.getElementById('main')
+    const emotionPage = new Page(main)
+    new PageEmotion(emotionPage)
+    const formPage = new Page(main)
+    new PageForm(formPage)
+    console.log("loaded")
+}
+
+function createEntry(text, div){
+    const newEntry = document.createElement('div')
+    const newEntryText = document.createTextNode(text)
+    newEntry.appendChild(newEntryText)
+    div.appendChild(newEntry)
+}
 
 
 
 
-function textHelper(){
-    document.getElementById('text-help').style.backgroundColor="#8A4D0F"
+
+
+
+function removeNumber(string){
+    let colonIndex = string.indexOf(":")
+    return string.slice(0, colonIndex+1)
+}
+
+
+
+
+
+
+
+function tutorialsHelp(){
+    // handles the span tags in the instructions section
+    document.getElementById('text-help').addEventListener('mouseover',(e)=>{
+        document.getElementById('text-help').style.border ="2px solid #8A4D0F"
+        document.querySelector('#dear-diary textarea').style.border = "2px solid #8A4D0F"
+    })
+    document.getElementById('text-help').addEventListener('mouseout',(e)=>{
+        document.getElementById('text-help').style.border = null
+        document.querySelector('#dear-diary textarea').style.border = null
+    })
+
+    document.getElementById('submit-help').addEventListener('mouseover',(e)=>{
+        document.getElementById('submit-help').style.border="2px solid #8A4D0F"
+        document.querySelector('#dear-diary input[type="submit"]').style.border="2px solid #8A4D0F"
+    })
+    document.getElementById('submit-help').addEventListener('mouseout',(e)=>{
+        document.getElementById('submit-help').style.border = null
+        document.querySelector('#dear-diary input[type="submit"]').style.border = null
+    })
+
+    document.getElementById('read-help').addEventListener('mouseover',(e)=>{
+        document.getElementById('read-help').style.border="2px solid #8A4D0F"
+        document.querySelector('#emote-div').style.border="2px solid #8A4D0F"
+    })
+    document.getElementById('read-help').addEventListener('mouseout',(e)=>{
+        document.getElementById('read-help').style.border=null
+        document.querySelector('#emote-div').style.border=null
+    })
+
+    document.getElementById('clear-help').addEventListener('mouseover',(e)=>{
+        document.getElementById('clear-help').style.border="2px solid #8A4D0F"
+        document.getElementById('clear-the-mind').style.border="2px solid #8A4D0F"
+    })
+    document.getElementById('clear-help').addEventListener('mouseout',(e)=>{
+        document.getElementById('clear-help').style.border=null
+        document.getElementById('clear-the-mind').style.border=null
+    })
 }
 

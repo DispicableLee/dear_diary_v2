@@ -1,12 +1,20 @@
 class PageEmotion{
     static emotionArray = ["Anger", "Disgust", "Fear", "Joy", "Sadness", "Surprise"]
+    static gifArray = ['./src/styles/sunrise.gif', './src/styles/bulb-1.gif', './src/styles/diamond-spinner.gif', './src/styles/eye.gif']
     constructor(page){
         console.log(PageEmotion.emotionArray)
         this.page = page
         const emoteDiv = document.createElement('div')
         emoteDiv.setAttribute('id', 'emote-div')
         this.fillEmotionPage(emoteDiv)
+
+        const clearEmotions = document.createElement('input')
+        clearEmotions.type = "submit"
+        clearEmotions.value = "Clear the Mind"
+        clearEmotions.setAttribute('id', 'clear-the-mind')
         this.page.htElement.appendChild(emoteDiv)
+        this.plugInGif(emoteDiv)
+        this.page.htElement.appendChild(clearEmotions)
     }
 
     fillEmotionPage(emoteDiv){
@@ -33,6 +41,16 @@ class PageEmotion{
             emoteLi.appendChild(emoteLiLabel)
             ul.appendChild(emoteLi)
         }
+    }
+
+
+    plugInGif(el){
+        let bulb = document.createElement('img')
+        bulb.src = PageEmotion.gifArray[Math.floor(Math.random()*PageEmotion.gifArray.length)]
+        
+        bulb.style.width = '100px'
+        bulb
+        el.appendChild(bulb)
     }
 }
 
