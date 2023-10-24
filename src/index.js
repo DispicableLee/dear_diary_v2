@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let eImg = document.querySelector('#emote-div img')
         eImg.style.visibility = 'visible'
         const value = document.querySelector('textarea').value
-        console.log(value)
+        // console.log(value)
         const options = {
             method: 'POST',
             headers: {
@@ -46,15 +46,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
         fetch('https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/', options)
             .then((r)=>r.json())
             .then((json)=>{
+                console.log(json)
+                let detectedEmotion = json.emotions_detected[0]
                 let resEmotions = json.emotions_normalized
                 for(const emote of Object.keys(resEmotions)){
                     let idSearch = `${emote+'-label-li'}`
-                    // console.log(idSearch)
                     let emotionLi = document.getElementById(idSearch)
                     let readOut = document.createTextNode(`${Math.ceil(resEmotions[emote])}`)
                     emotionLi.appendChild(readOut)
-                    // console.log("done")
                 }
+                changeStyleBasedOnResponse(detectedEmotion)
                 createEntry(value, diaryEntries)
                 eImg.style.visibility = 'hidden'
             })
@@ -80,15 +81,100 @@ function createEntry(text, div){
     div.appendChild(newEntry)
 }
 
-
-
-
-
-
-
 function removeNumber(string){
     let colonIndex = string.indexOf(":")
     return string.slice(0, colonIndex+1)
+}
+
+
+
+
+function changeStyleBasedOnResponse(response){
+    console.log(response)
+    const pages = document.getElementsByTagName('div')
+    const headers = document.getElementsByTagName('h1')
+    const texts = document.getElementsByTagName('p')
+    const labels =  document.getElementsByTagName('label')
+    const textForm = document.querySelector('textarea')
+    const uL = document.querySelector('ul')
+    const inputs =document.getElementsByTagName('input')
+    if(response === "anger"){
+        for(const page of pages){ 
+            page.style.border = "3px solid #FFC07F"
+            page.style.backgroundColor = "#721121"
+        }
+        for(const header of headers){
+            header.style.color = "#FFC07F"
+        }
+        for(const label of labels){
+            label.style.color = "#FFC07F"
+        }
+        for(const text of texts){
+            text.style.color = "#FFC07F"
+        }
+        for(const input of inputs){
+            input.style.border = "3px solid #FFC07F"
+            input.style.color = "3px solid #FFC07F"
+        }
+        textForm.style.color = "#FFC07F"
+        uL.style.border = "3px solid #FFC07F"
+
+    }else if(response === "disgust"){
+        for(const page of pages){ 
+            page.style.border = "3px solid #38369A"
+            page.style.backgroundColor = "#A9DBB8"
+        }
+        for(const header of headers){
+            header.style.color = "#FFC07F"
+        }
+        for(const label of labels){
+            label.style.color = "#FFC07F"
+        }
+        for(const text of texts){
+            text.style.color = "#FFC07F"
+        }
+        for(const input of inputs){
+            input.style.border = "3px solid #FFC07F"
+            input.style.color = "3px solid #FFC07F"
+        }
+        textForm.style.color = "#FFC07F"
+        uL.style.border = "3px solid #FFC07F"
+    }else if(response === "fear"){
+        for(const page of pages){ 
+                page.style.border = "3px solid purple"
+        }
+
+    }else if(response === "joy"){
+        for(const page of pages){ 
+            page.style.border = "3px solid #80CED7"
+            page.style.backgroundColor = "#F08CAE"
+        }
+        for(const header of headers){
+            header.style.color = "#80CED7"
+        }
+        for(const label of labels){
+            label.style.color = "#80CED7"
+        }
+        for(const text of texts){
+            text.style.color = "#80CED7"
+        }
+        for(const input of inputs){
+            input.style.border = "3px solid #80CED7"
+            input.style.color = "3px solid #80CED7"
+        }
+        textForm.style.color = "#80CED7"
+        uL.style.border = "3px solid #80CED7"
+
+    }else if(response === "sadness"){
+        for(const page of pages){ 
+            page.style.border = "3px solid blue"
+        }   
+        
+    }else if(response === "surprise"){
+        for(const page of pages){ 
+            page.style.border = "3px solid yellow"
+        }
+    }
 }
 
 
@@ -100,8 +186,8 @@ function removeNumber(string){
 function tutorialsHelp(){
     // handles the span tags in the instructions section
     document.getElementById('text-help').addEventListener('mouseover',(e)=>{
-        document.getElementById('text-help').style.border ="2px solid #8A4D0F"
-        document.querySelector('#dear-diary textarea').style.border = "2px solid #8A4D0F"
+        document.getElementById('text-help').style.border ="3px solid #8A4D0F"
+        document.querySelector('#dear-diary textarea').style.border = "3px solid #8A4D0F"
     })
     document.getElementById('text-help').addEventListener('mouseout',(e)=>{
         document.getElementById('text-help').style.border = null
@@ -109,8 +195,8 @@ function tutorialsHelp(){
     })
 
     document.getElementById('submit-help').addEventListener('mouseover',(e)=>{
-        document.getElementById('submit-help').style.border="2px solid #8A4D0F"
-        document.querySelector('#dear-diary input[type="submit"]').style.border="2px solid #8A4D0F"
+        document.getElementById('submit-help').style.border="3px solid #8A4D0F"
+        document.querySelector('#dear-diary input[type="submit"]').style.border="3px solid #8A4D0F"
     })
     document.getElementById('submit-help').addEventListener('mouseout',(e)=>{
         document.getElementById('submit-help').style.border = null
@@ -118,17 +204,17 @@ function tutorialsHelp(){
     })
 
     document.getElementById('read-help').addEventListener('mouseover',(e)=>{
-        document.getElementById('read-help').style.border="2px solid #8A4D0F"
-        document.querySelector('#emote-div').style.border="2px solid #8A4D0F"
+        document.getElementById('read-help').style.border="3px solid #8A4D0F"
+        document.querySelector('#emote-div').style.border="3px solid #8A4D0F"
     })
     document.getElementById('read-help').addEventListener('mouseout',(e)=>{
-        document.getElementById('read-help').style.border=null
+        document.getElementById('3ead-help').style.border=null
         document.querySelector('#emote-div').style.border=null
     })
 
     document.getElementById('clear-help').addEventListener('mouseover',(e)=>{
-        document.getElementById('clear-help').style.border="2px solid #8A4D0F"
-        document.getElementById('clear-the-mind').style.border="2px solid #8A4D0F"
+        document.getElementById('clear-help').style.border="3px solid #8A4D0F"
+        document.getElementById('clear-the-mind').style.border="3px solid #8A4D0F"
     })
     document.getElementById('clear-help').addEventListener('mouseout',(e)=>{
         document.getElementById('clear-help').style.border=null
