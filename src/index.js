@@ -7,15 +7,16 @@ import DiaryEntries from "./scripts/diaryEntry";
 
 document.addEventListener("DOMContentLoaded", ()=>{
     openDiary()
-    console.log("entries", DiaryEntries.entries)
-    console.log(DiaryEntries.getDiary())
+    // console.log(JSON.parse(JSON.parse(DiaryEntries.entries)))
+    // console.log(DiaryEntries.entries)
     const diaryFormSubmit = document.querySelector('#dear-diary input')
     // debugger
-    if(DiaryEntries.getDiary()){
-        for(const entry of DiaryEntries.getDiary()){
-            createEntry(entry)
-        }
-    }
+    // if(JSON.parse(localStorage.entries)){
+    //     for(const entry of JSON.parse(localStorage.entries)){
+    //         console.log(entry)
+    //         createEntry(entry)
+    //     }
+    // }
 
     
     const diaryEntries = document.getElementById('entries')
@@ -64,7 +65,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     emotionLi.appendChild(readOut)
                 }
                 changeStyleBasedOnResponse(detectedEmotion)
-                DiaryEntries.addToDiary(value)               
+                // DiaryEntries.addToDiary(value)
+                createEntry(value)               
                 eImg.style.visibility = 'hidden'
             })
     })
