@@ -5,22 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <!-- <link rel="stylesheet" href="./src/styles/paper-prototype.css"> -->
+    <link rel="stylesheet" href="./src/styles/paper-prototype.scss">
+    
     <script src="./dist/main.js"></script>
-    <script type="module" src="/src/scripts/flipping-page.js"></script>
     <title>Dear Diary</title>
+    <link rel="icon" href="./src/styles/favicon-diary.png">
 </head>
 
 <body>
-    <section id="about">
-        
-    </section>
-    <div id="main">
-        <div class="page page-cover" data-density="hard" onclick="{()=>console.log("hi")}">
-            Page Cover
+    <div id="nav">
+        <h1>Dear Diary</h1>
+    </div>
+    <div id="main-body">
+        <div id="about">
+            <div>
+                <h1>Instructions</h1>
+                <p>type whatever you like into <span id="text-help">this</span>
+                    form, then click the <span id="submit-help">submit</span> button to see 
+                    your emotional state in <span id="read-help">this page</span>.
+                    When you are ready to write again, click <span id="clear-help">this button</span>
+                    to reset the emotion scores and begin afresh.
+                </p>
+            </div>
+            <h2>Socials</h2>
+            <div id="socials">
+                <a href="https://github.com/DispicableLee" target="_blank">
+                    <img src="./src/styles/githubdrawlogo_114764.png" class="social-logo">
+                </a>
+                <a href="https://www.instagram.com/hawtcurryans/" target="_blank">
+                    <img src="./src/styles/38530.png" class="social-logo">
+                </a>
+                <a href="https://www.linkedin.com/in/robert-lee-webdeveloper/" target="_blank">
+                    <img src="./src/styles/linkedindrawlogo_114721.png" class="social-logo">
+                </a>
+                
+            </div>
+        </div>
+        <div id="main">
+    
+    
         </div>
 
     </div>
+
+    <div id="entries">
+        <div class="diary-entry">
+            <p>These are your past entries.</p>
+        </div>
+    </div>
+
 </body>
 
 </html>

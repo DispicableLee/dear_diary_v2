@@ -1,50 +1,74 @@
-body{
+#nav{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#main-body{
     display: flex;
     flex-direction: row;
+    gap: 30;
+    height: 800px;
+    // border: 3px solid #84BC9C;
+    // background-color: #F194B4;
+    // color: #84BC9C;
 }
 
 
 #about{
-    border: 1px solid black;
-    height: 300px;
-    width: 300px;
+    // border: 1px solid black;
+    // height: 600px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 
-// #main{
-//     color: purple;
-//     border: 1px solid black;
-//     height: 50%;
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-//     float: right;
-// }
+#socials{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.social-logo {
+    width: 50px;
+}
+
+#main{
+    color: purple;
+    // border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    float: right;
+}
 
 .page{
-    border: 1px solid red;
+    // border: 1px solid red;
     height: 100%;
-    width: 50%;
-}
-.page.page-cover{
-    background-color: aquamarine;
+    width: 100%;
 }
 
+
 #dear-diary{
-    background-color: grey;
     height: inherit;
+    width: 100%;
+
     display: flex;
     flex-direction: column;
 }
 
 #dear-diary textarea{
     height: 90%;
+    width: 100%;
 }
-
-
 
 #dear-diary input[type="submit"]{
     height: 10%;
+    width: 100%;
 }
 
 
@@ -52,6 +76,12 @@ body{
     list-style: none;
 }
 
-#emotion-list li{
+#emotion-leist li{
     padding: 5px;
+}
+
+#emote-div img{
+    border: none;
+    // opacity: 50%;
+    visibility: hidden;
 }

@@ -1,46 +1,77 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-body {
+#nav {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#main-body {
   display: flex;
   flex-direction: row;
+  gap: 30;
+  height: 800px;
 }
 
 #about {
-  border: 1px solid black;
-  height: 300px;
-  width: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.social-logo {
+  width: 50px;
+}
+
+#main {
+  color: purple;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  float: right;
 }
 
 .page {
-  border: 1px solid red;
   height: 100%;
-  width: 50%;
-}
-
-.page.page-cover {
-  background-color: aquamarine;
+  width: 100%;
 }
 
 #dear-diary {
-  background-color: grey;
   height: inherit;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 #dear-diary textarea {
   height: 90%;
+  width: 100%;
 }
 
 #dear-diary input[type=submit] {
   height: 10%;
+  width: 100%;
 }
 
 #emotion-list {
   list-style: none;
 }
 
-#emotion-list li {
+#emotion-leist li {
   padding: 5px;
+}
+
+#emote-div img {
+  border: none;
+  visibility: hidden;
 }
