@@ -1,14 +1,18 @@
 import Page from "./scripts/page"
 import PageForm from "./scripts/page-form"
 import PageEmotion from "./scripts/page-emotion"
-import { PageFlip } from "../node_modules/page-flip/dist/js/page-flip.module.js";
+// import { PageFlip } from "../node_modules/page-flip/dist/js/page-flip.module.js";
+import DiaryEntries from "./scripts/diaryEntry";
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
     openDiary()
-    
+    console.log(DiaryEntries.entries)
     const diaryFormSubmit = document.querySelector('#dear-diary input')
-    const diaryFormTextarea = document.querySelector('#dear-diary textarea')
+    for(const entry of DiaryEntries.getDiary()){
+        createEntry(entry)
+    }
+
     
     const diaryEntries = document.getElementById('entries')
     const clearTheMind = document.getElementById('clear-the-mind')
@@ -21,6 +25,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     })
 
+
     tutorialsHelp()
 
 
@@ -31,7 +36,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let eImg = document.querySelector('#emote-div img')
         eImg.style.visibility = 'visible'
         const value = document.querySelector('textarea').value
-        // console.log(value)
         const options = {
             method: 'POST',
             headers: {
@@ -56,7 +60,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     emotionLi.appendChild(readOut)
                 }
                 changeStyleBasedOnResponse(detectedEmotion)
-                createEntry(value, diaryEntries)
+                DiaryEntries.addToDiary(value)                
                 eImg.style.visibility = 'hidden'
             })
     })
@@ -74,11 +78,12 @@ function openDiary(){
     console.log("loaded")
 }
 
-function createEntry(text, div){
+function createEntry(text){
+    const entriesDiv = document.getElementById('entries')
     const newEntry = document.createElement('div')
     const newEntryText = document.createTextNode(text)
     newEntry.appendChild(newEntryText)
-    div.appendChild(newEntry)
+    entriesDiv.appendChild(newEntry)
 }
 
 function removeNumber(string){
@@ -167,13 +172,46 @@ function changeStyleBasedOnResponse(response){
 
     }else if(response === "sadness"){
         for(const page of pages){ 
-            page.style.border = "3px solid blue"
-        }   
-        
+            page.style.border = "3px solid 	#39546d"
+            page.style.backgroundColor = "#13273e"
+        }
+        for(const header of headers){
+            header.style.color = "	#567b89"
+        }
+        for(const label of labels){
+            label.style.color = "#567b89"
+        }
+        for(const text of texts){
+            text.style.color = "#567b89"
+        }
+        for(const input of inputs){
+            input.style.border = "3px solid #567b89"
+            input.style.color = "3px solid #567b89"
+        }
+        textForm.style.color = "#567b89"
+        uL.style.border = "3px solid #567b89"
+
     }else if(response === "surprise"){
         for(const page of pages){ 
-            page.style.border = "3px solid yellow"
+            page.style.border = "3px solid #ECD444"
+            page.style.backgroundColor = "#372549"
         }
+        for(const header of headers){
+            header.style.color = "	#ECD444"
+        }
+        for(const label of labels){
+            label.style.color = "#E36397"
+        }
+        for(const text of texts){
+            text.style.color = "#E36397"
+        }
+        for(const input of inputs){
+            input.style.border = "3px solid #ECD444"
+            input.style.color = "3px solid #E36397"
+        }
+        textForm.style.color = "#ECD444"
+        textForm.style.border = "3px solid #ECD444"
+        uL.style.border = "3px solid #ECD444"
     }
 }
 
@@ -208,7 +246,7 @@ function tutorialsHelp(){
         document.querySelector('#emote-div').style.border="3px solid #8A4D0F"
     })
     document.getElementById('read-help').addEventListener('mouseout',(e)=>{
-        document.getElementById('3ead-help').style.border=null
+        document.getElementById('read-help').style.border=null
         document.querySelector('#emote-div').style.border=null
     })
 
