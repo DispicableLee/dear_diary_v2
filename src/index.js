@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     let readOut = document.createTextNode(`${Math.ceil(resEmotions[emote])}`)
                     emotionLi.appendChild(readOut)
                 }
-                debugger
                 changeStyleBasedOnResponse(detectedEmotion)
                 DiaryEntries.addToDiary(value)
+                console.log(localStorage.entries)
                 createEntry(value)               
                 eImg.style.visibility = 'hidden'
             })

@@ -1,7 +1,6 @@
 class PageForm{
     constructor(page){
         this.page = page
-        // console.log(page)
         const form = document.createElement('form')
         form.setAttribute('id', 'dear-diary')
         this.makeFormStuff(form)

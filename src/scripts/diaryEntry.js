@@ -1,13 +1,13 @@
 // makeDiaryEntries
 
 class DiaryEntries{
-    static entries = localStorage.getItem("entries") || []
+    static entries = JSON.parse(localStorage.getItem("entries")) || []
 
     constructor(){
     }
 
     static addToDiary = (entry)=>{
-        debugger
+        // debugger
         DiaryEntries.entries.unshift(entry)
         localStorage.setItem("entries", JSON.stringify(this.entries))
     }
