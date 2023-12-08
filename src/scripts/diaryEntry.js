@@ -7,7 +7,7 @@ class DiaryEntries{
     }
 
     static addToDiary = (entry)=>{
-        // debugger
+        debugger
         DiaryEntries.entries.unshift(entry)
         localStorage.setItem("entries", JSON.stringify(this.entries))
     }
