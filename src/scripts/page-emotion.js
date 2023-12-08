@@ -2,7 +2,6 @@ class PageEmotion{
     static emotionArray = ["Anger", "Disgust", "Fear", "Joy", "Sadness", "Surprise"]
     static gifArray = ['./src/styles/sunrise.gif', './src/styles/bulb-1.gif', './src/styles/diamond-spinner.gif', './src/styles/eye.gif']
     constructor(page){
-        console.log(PageEmotion.emotionArray)
         this.page = page
         const emoteDiv = document.createElement('div')
         emoteDiv.setAttribute('id', 'emote-div')

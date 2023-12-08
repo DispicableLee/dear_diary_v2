@@ -2,21 +2,19 @@ import Page from "./scripts/page"
 import PageForm from "./scripts/page-form"
 import PageEmotion from "./scripts/page-emotion"
 // import { PageFlip } from "../node_modules/page-flip/dist/js/page-flip.module.js";
-import DiaryEntries from "./scripts/diaryEntry";
+import DiaryEntries from "./scripts/diaryEntry"
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
     openDiary()
-    // console.log(JSON.parse(JSON.parse(DiaryEntries.entries)))
-    // console.log(DiaryEntries.entries)
     const diaryFormSubmit = document.querySelector('#dear-diary input')
     // debugger
-    // if(JSON.parse(localStorage.entries)){
-    //     for(const entry of JSON.parse(localStorage.entries)){
-    //         console.log(entry)
-    //         createEntry(entry)
-    //     }
-    // }
+    if(JSON.parse(localStorage.entries)){
+        for(const entry of JSON.parse(localStorage.entries)){
+            console.log(entry)
+            createEntry(entry)
+        }
+    }
 
     
     const diaryEntries = document.getElementById('entries')
@@ -64,8 +62,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     let readOut = document.createTextNode(`${Math.ceil(resEmotions[emote])}`)
                     emotionLi.appendChild(readOut)
                 }
+                debugger
                 changeStyleBasedOnResponse(detectedEmotion)
-                // DiaryEntries.addToDiary(value)
+                DiaryEntries.addToDiary(value)
                 createEntry(value)               
                 eImg.style.visibility = 'hidden'
             })
