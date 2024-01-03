@@ -8,7 +8,7 @@ import DiaryEntries from "./scripts/diaryEntry"
 document.addEventListener("DOMContentLoaded", ()=>{
     openDiary()
     const diaryFormSubmit = document.querySelector('#dear-diary input')
-    // debugger
+    debugger
     if(JSON.parse(localStorage.entries)){
         for(const entry of JSON.parse(localStorage.entries)){
             console.log(entry)
