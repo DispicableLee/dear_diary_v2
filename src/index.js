@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       createEntry(entry);
     }
   }else{
+    console.log("no entries")
     localStorage.setItem("entries", [])
   }
 
