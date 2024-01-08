@@ -87,6 +87,7 @@ function openDiary() {
   const formPage = new Page(main);
   new PageForm(formPage);
   console.log("loaded");
+  localStorage.setItem("entries", [])
 }
 
 function createEntry(text) {
