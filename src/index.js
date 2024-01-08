@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const diaryFormSubmit = document.querySelector("#dear-diary input");
   // debugger
   if (JSON.parse(localStorage.entries)) {
+    console.log("localStorage.entries")
     for (const entry of JSON.parse(localStorage.entries)) {
       console.log(entry);
       createEntry(entry);
