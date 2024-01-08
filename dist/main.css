@@ -7,12 +7,6 @@
   flex-direction: row;
   justify-content: center;
 }
-body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 
 #main-body {
   display: flex;
