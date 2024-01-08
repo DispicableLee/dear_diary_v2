@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(entry);
       createEntry(entry);
     }
+  }else{
+    localStorage.setItem("entries", [])
   }
 
   const diaryEntries = document.getElementById("entries");
