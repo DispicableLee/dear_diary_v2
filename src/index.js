@@ -7,16 +7,18 @@ import DiaryEntries from "./scripts/diaryEntry";
 document.addEventListener("DOMContentLoaded", () => {
   openDiary();
   const diaryFormSubmit = document.querySelector("#dear-diary input");
-  // debugger
-  if (JSON.parse(localStorage.entries)) {
+//   debugger
+  if (localStorage.entries) {
     console.log("localStorage.entries")
+    // debugger
     for (const entry of JSON.parse(localStorage.entries)) {
+        // debugger
       console.log(entry);
       createEntry(entry);
     }
   }else{
     console.log("no entries")
-    localStorage.setItem("entries", [])
+    localStorage.setItem("entries", "[]")
   }
 
   const diaryEntries = document.getElementById("entries");
@@ -87,7 +89,7 @@ function openDiary() {
   const formPage = new Page(main);
   new PageForm(formPage);
   console.log("loaded");
-  localStorage.setItem("entries", [])
+//   localStorage.setItem("entries", [])
 }
 
 function createEntry(text) {

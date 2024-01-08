@@ -1,7 +1,10 @@
 // makeDiaryEntries
 
 class DiaryEntries{
-    static entries = JSON.parse(localStorage.getItem("entries")) || []
+
+    static entries = localStorage.getItem("entries") ? JSON.parse(localStorage.getItem("entries")) : '[]';
+    
+    
 
     constructor(){
     }
