@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // ================================ form submission =================================
   diaryFormSubmit.addEventListener("click", (e) => {
     e.preventDefault();
-    debugger
+    // debugger
     let eImg = document.querySelector("#emote-div img");
     eImg.style.visibility = "visible";
     const value = document.querySelector("textarea").value;
-    debugger
+    // debugger
     const options = {
       method: "POST",
       headers: {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         text: value,
       }),
     };
-    debugger
+    // debugger
     fetch(
       "https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/",
       options
