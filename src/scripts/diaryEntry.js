@@ -2,7 +2,7 @@
 
 class DiaryEntries{
 
-    static entries = localStorage.getItem("entries") ? JSON.parse(localStorage.getItem("entries")) : '[]';
+    static entries = localStorage.getItem("entries") ? JSON.parse(localStorage.getItem("entries")) : [];
     
     
 
